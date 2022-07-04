@@ -1,0 +1,20 @@
+{% extends 'base-error.html.twig' %}
+
+{% block title %}Erreur serveur{% endblock %}
+
+{% block body %}
+    <section class="page-section bg-light" id="error">
+        <div class="container error">
+            <div class="text-center text-error">
+                <h1>{{ status_code }}</h1>
+                <h2 class="section-heading text-uppercase">Erreur serveur</h2>
+                <p>Désolé, un problème dans le serveur nous empêche de vous afficher la page demandée.</p>
+                <p>Nous essayons de régler le soucis, veuillez réesayer ultérieurement.</p>
+            </div>  
+        </div>  
+    </section>
+{% endblock %}
+
+    
+
+    

@@ -1,0 +1,45 @@
+<!-- Contact-->
+<section class="page-section" id="contact">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Me contacter</h2>
+            <h3 class="section-subheading text-muted">Contactez-moi pour tout renseignement, je serais ravie de vous répondre !</h3>
+        </div>
+        <form id="contactForm" method="post">
+            <div class="col-md-6 mx-auto">
+            {{ form_start(form) }}
+                {% for message in app.flashes('success') %}
+                    <div class="alert alert-success">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+
+                <div class="my-custom-class-for-errors">
+                    {{ form_errors(form) }}
+                </div>
+                
+                <div class="form-group">
+                    <label hidden for="contact_name" class="form-label">
+                        {{ form_label(form.name) }}
+                    </label>
+                    {{ form_widget(form.name) }} 
+                </div>
+                <div class="form-group">
+                    <label hidden for="contact_email" class="form-label">
+                        {{ form_label(form.email) }}
+                    </label>
+                    {{ form_widget(form.email)}}
+                </div>
+                <div class="form-group form-group-textarea mb-3">
+                    <label hidden for="contact_message">
+                        {{ form_label(form.message) }}
+                    </label>
+                    {{ form_widget(form.message)}}
+                </div>           
+            <!-- Submit Button-->
+            <div class="text-center">{{ form_widget(form.envoyer)}}</div>
+            {{ form_end(form) }}
+        </form>
+    </div>
+</section>
+ 

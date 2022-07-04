@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>{% block title %}Login!{% endblock %}</title>
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+
+    {% block stylesheets %}
+        {# Charge les feuilles des styles css #}
+        {# {{ encore_entry_link_tags('app') }} #}
+    {% endblock %}
+</head>
+<body>
+    <section class="page-section login" id="contact">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Login</h2>
+                    <h3 class="section-subheading text-muted">Administration du site</h3>
+                </div>
+            
+                <form id="contactForm" method="post">
+                        <div class="col-md-6 offset-md-3">
+                            {% if error %}
+                                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                            {% endif %}
+                            
+                            {% if app.user %}
+                                <div class="mb-3">
+                                    Vous êtes connecté comme {{ app.user.username }}, <a href="{{ path('app_logout') }}">Déconnexion</a>
+                                </div>
+                            {% endif %}
+                            <div class="form-group">
+                                <label hidden for="inputEmail">Email</label>
+                                <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" placeholder="nom@email.com *" required autofocus>
+                            </div>
+                        </div>
+                        <div class="col-md-6 offset-md-3">
+                            <div class="form-group">
+                                <label hidden for="inputPassword">Mot de passe</label>
+                                <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" placeholder="Entrez votre mot de passe *" required>
+                            </div>
+                        </div>
+
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+                    <!-- Submit Button-->
+                    <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase" type="submit">Ouvrir une session</button></div>
+                </form>
+            </div>
+        </section>
+             {# Charge les scripts JS #}
+            {# {{ encore_entry_script_tags('app') }} #}
+            <script src="{{ asset('script.js')}}"></script>
+    </body>
+</html>

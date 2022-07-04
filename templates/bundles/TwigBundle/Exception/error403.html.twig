@@ -1,0 +1,16 @@
+{% extends 'base-error.html.twig' %}
+
+{% block title %}Accès interdit{% endblock %}
+
+{% block body %}
+    <section class="page-section bg-light" id="error">
+        <div class="container error">
+            <div class="text-center text-error">
+                <h1>{{ status_code }}</h1>
+                <h2 class="section-heading text-uppercase">Accès interdit</h2>
+                <p>Vous n'avez pas la permission de voir cette page</p>
+                <a href={{ path('home') }}>Revenir vers la page principale</a>
+            </div>  
+        </div>  
+    </section>
+{% endblock %}

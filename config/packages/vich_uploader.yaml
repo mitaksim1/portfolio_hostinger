@@ -1,0 +1,11 @@
+vich_uploader:
+    db_driver: orm
+    storage: flysystem
+
+    mappings:
+       project_images:
+           uri_prefix: '/project_images'
+           upload_destination: aws.storage
+           namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+           delete_on_update: false
+           delete_on_remove: false
